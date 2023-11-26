@@ -17,6 +17,11 @@ class CardComponent extends StatelessWidget {
       padding: const EdgeInsets.only(left: 10, right: 10, top: 6, bottom: 6),
       child: GestureDetector(
         onTap: () {
+          Navigator.pushNamed(
+            context,
+            '/editarMusica',
+            arguments: musica,
+          );
         },
         child: Container(
           decoration: BoxDecoration(
