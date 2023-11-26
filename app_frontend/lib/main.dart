@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:app_frontend/pages/music_list.dart';
+import 'package:app_frontend/pages/lista_musicas.dart';
+import 'package:app_frontend/pages/inserir_musica.dart';
+import 'package:app_frontend/pages/editar_musica.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,8 +22,8 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/musicas',
       routes: {
         '/musicas': (context) => const MusicListView(),
-        // '/add': (context) => const MusicListView(),
-        // '/editar': (context) => const EditarView(),
+        '/inserirMusica': (context) => const InsertMusicView(),
+        '/editarMusica': (context) => const EditMusicView(),
       }
     );
   }
