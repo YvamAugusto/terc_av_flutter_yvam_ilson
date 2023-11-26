@@ -15,7 +15,8 @@ app.get('/', (req, res) => {
 })
 
 app.get('/musicas', (req, res) => {
-    db.query(`SELECT mus.id, mus.nome, mus.album, mus.autor, mus.genero, mus.ano, mus.duracao FROM musicas mus `, (err, result) => {
+    db.query(`SELECT mus.id, mus.nome, mus.album, mus.autor, mus.genero, mus.ano, mus.duracao 
+                FROM musicas mus ORDER BY mus.id DESC`, (err, result) => {
         if (err) {
             console.error(err);
         } else {
