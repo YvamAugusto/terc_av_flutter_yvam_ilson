@@ -86,7 +86,7 @@ class _MusicListViewState extends State<MusicListView> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => InsertMusicView()), // Substitua 'InserirMusicasPage' pelo nome correto da sua página
+            MaterialPageRoute(builder: (context) => const InsertMusicView()),
           );
         },
         child: const Icon(Icons.add, color: Colors.black, size: 30,),

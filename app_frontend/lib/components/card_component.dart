@@ -52,6 +52,18 @@ class CardComponent extends StatelessWidget {
                   ),
                 ],
               ),
+              Row(
+                children: [
+                  Text(
+                    musica!.genero + '  |  ',
+                    style: const TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                  Text(
+                    musica!.ano.toString(),
+                    style: const TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
