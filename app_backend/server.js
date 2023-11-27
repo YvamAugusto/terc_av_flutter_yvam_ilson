@@ -22,7 +22,6 @@ app.get('/musicas', (req, res) => {
         } else {
             res.status(200).json(result.rows);
         }
-        console.log('passou aqui');
     })
 })
 

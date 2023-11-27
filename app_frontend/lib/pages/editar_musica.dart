@@ -1,8 +1,6 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:app_frontend/components/form_component.dart';
-import 'package:app_frontend/components/button_component.dart';
-import 'package:http/http.dart';
+import 'package:app_frontend/components/edit_form_component.dart';
+import 'package:app_frontend/model/musica.dart';
 
 class EditMusicView extends StatefulWidget {
   const EditMusicView({Key? key}) : super(key: key);
@@ -13,14 +11,6 @@ class EditMusicView extends StatefulWidget {
 
 class _EditMusicViewState extends State<EditMusicView> {
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final TextEditingController _nomeController = TextEditingController();
-  final TextEditingController _albumController = TextEditingController();
-  final TextEditingController _autorController = TextEditingController();
-  final TextEditingController _generoController = TextEditingController();
-  final TextEditingController _anoController = TextEditingController();
-  final TextEditingController _duracaoController = TextEditingController();
-
   Future<bool> voltarPagina() async {
     return await showDialog(
       context: context,
@@ -30,7 +20,7 @@ class _EditMusicViewState extends State<EditMusicView> {
         ),
         child: AlertDialog(
           title: const Text(
-            'Cancelar cadastro?',
+            'Cancelar edição?',
             style: TextStyle(
               color: Colors.white,
             ),
@@ -60,16 +50,11 @@ class _EditMusicViewState extends State<EditMusicView> {
     ) ?? false;
   }
 
-  Future<bool> deletarMusica() async{
-    return true;
-  }
-
-  Future<bool> editarMusica() async{
-    return true;
-  }
-
   @override
   Widget build(BuildContext context) {
+
+    final musica = ModalRoute.of(context)!.settings.arguments as Musica;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 31, 223, 100),
@@ -102,39 +87,7 @@ class _EditMusicViewState extends State<EditMusicView> {
       ),
       backgroundColor: const Color.fromARGB(255, 29, 29, 29),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            FormComponent(
-              // formKey: _formKey,
-              // nomeController: nomeController,
-              // albumController: _albumController,
-              // autorController: _autorController,
-              // generoController: _generoController,
-              // anoController: _anoController,
-              // duracaoController: _duracaoController,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ButtonComponent(
-                  onPressed: deletarMusica,
-                  color: const Color.fromARGB(255, 29, 29, 29),
-                  fontColor: const Color.fromARGB(255, 31, 223, 100),
-                  borderColor: const Color.fromARGB(255, 31, 223, 100),
-                  text: 'Excluir',
-                ),
-                const SizedBox(width: 10),
-                ButtonComponent(
-                  onPressed: editarMusica,
-                  color: const Color.fromARGB(255, 31, 223, 100),
-                  fontColor: Colors.black,
-                  borderColor: const Color.fromARGB(255, 31, 223, 100),
-                  text: 'Salvar',
-                )
-              ],
-            ),
-          ],
-        ),
+        child: EditFormComponent(musica: musica),
       ),
     );
   }
