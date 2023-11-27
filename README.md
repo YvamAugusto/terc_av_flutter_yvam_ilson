@@ -4,7 +4,7 @@ Este é um projeto Flutter com um backend em Node.js, utilizando um banco de dad
 
 ## Configuração do Banco de Dados
 
-1. Crie um banco de dados PostgreSQL.
+1. Crie um banco de dados PostgreSQL. (editar ans configurações do backend 'connection.js')
 2. Execute os seguintes comandos SQL para criar as tabelas:
 
    ```sql
